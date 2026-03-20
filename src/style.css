@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #4f46e5;
+  --color-surface: #111827;
+  --color-surface-light: #1f2937;
+  --color-surface-border: #374151;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Template cards */
+.template-card {
+  @apply relative cursor-pointer rounded-lg border-2 border-transparent overflow-hidden transition-all duration-200;
+}
+.template-card:hover {
+  @apply border-primary-light shadow-lg;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+.template-card.active {
+  @apply border-primary;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+/* Form controls */
+.control-label {
+  @apply block text-sm font-medium text-gray-300 mb-1.5;
+}
+.control-input {
+  @apply w-full rounded-lg bg-surface border border-surface-border px-3 py-2 text-sm text-gray-100 placeholder-gray-500 transition-colors;
+}
+.control-input:focus {
+  @apply border-primary outline-none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+.control-select {
+  @apply w-full rounded-lg bg-surface border border-surface-border px-3 py-2 text-sm text-gray-100 transition-colors;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+.control-select:focus {
+  @apply border-primary outline-none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all cursor-pointer;
+}
+.btn-primary:hover {
+  @apply bg-primary-light;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-surface-border bg-surface px-5 py-2.5 text-sm font-medium text-gray-300 transition-all cursor-pointer;
+}
+.btn-secondary:hover {
+  @apply bg-surface-light text-white;
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Color picker */
+input[type="color"] {
+  @apply w-10 h-10 rounded-lg cursor-pointer border-2 border-surface-border p-0;
+  -webkit-appearance: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* Char count */
+.char-count {
+  @apply text-xs text-gray-500 mt-1 text-right;
+}
+.char-count.warn {
+  @apply text-amber-400;
+}
+.char-count.over {
+  @apply text-red-400;
+}
